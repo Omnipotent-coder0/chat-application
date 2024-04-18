@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import "dotenv/config";
 import mongoose from "mongoose";
 import routes from "./routes/index.mjs";
@@ -9,6 +10,8 @@ import { app, server } from "./socket/socket.io.mjs";
 
 const db_url = process.env.DB_URL;
 const port = process.env.PORT || 8080;
+
+const __dirname = path.resolve();
 
 app.use(
   cors({
@@ -22,9 +25,14 @@ app.use(express.json());
 app.use(verifyToken);
 app.use("/api", routes);
 
-app.get("/", (req, res) => {
-  return res.status(200).send({ hello: "world" });
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("*", (req, res) => {
+  return res.sendFile(path.join(__dirname, "/client/dist", "index.html"));
 });
+// app.get("/", (req, res) => {
+//   return res.status(200).send({ hello: "world" });
+// });
 
 mongoose
   .connect(db_url)

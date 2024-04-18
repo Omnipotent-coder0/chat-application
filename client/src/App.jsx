@@ -8,9 +8,6 @@ function App() {
   const { currentUser } = useCurrentUserContext();
   return (
     <>
-      <h1 className="text-3xl text-black text-center">
-        {currentUser ? "auth truee!!" : "auth falseee!!"}
-      </h1>
       <div className=" bg-black/20 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden bg-gray-900 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-black/20">
         <Routes>
           <Route
