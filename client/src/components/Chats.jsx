@@ -25,7 +25,7 @@ const Chats = () => {
         setSelectedUser(null);
       }
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       toast.error(error.message);
     }
   };
@@ -52,7 +52,7 @@ const Chats = () => {
       } catch (error) {
         localStorage.removeItem("chat-user");
         localStorage.removeItem("chat-selected-user");
-        console.error(error);
+        // console.error(error);
         toast.error(error.message);
         setSelectedUser(null);
         setCurrentUser(null);

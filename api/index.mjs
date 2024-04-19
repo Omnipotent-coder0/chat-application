@@ -27,12 +27,18 @@ app.use("/api", routes);
 
 app.use(express.static(path.join(__dirname, "/client/dist")));
 
-app.get("*", (req, res) => {
+
+// Frontend Routes
+app.get("/", (req, res) => {
   return res.sendFile(path.join(__dirname, "/client/dist", "index.html"));
 });
-// app.get("/", (req, res) => {
-//   return res.status(200).send({ hello: "world" });
-// });
+app.get("/login", (req, res) => {
+  return res.sendFile(path.join(__dirname, "/client/dist", "index.html"));
+});
+app.get("/signup", (req, res) => {
+  return res.sendFile(path.join(__dirname, "/client/dist", "index.html"));
+});
+// Frontend Routes
 
 mongoose
   .connect(db_url)
@@ -45,16 +51,3 @@ mongoose
   .catch((error) => {
     console.error(error);
   });
-
-// try {
-//   const startServer = async () => {
-//     const res = await mongoose.connect(db_url)
-//     console.log("Your application is successfully connected to database");
-//     app.listen(port, () => {
-//       console.log(`Your server is running on port : ${port}`);
-//     });
-//   };
-//   startServer();
-// } catch (error) {
-//   console.error(error);
-// }

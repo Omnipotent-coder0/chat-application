@@ -21,9 +21,9 @@ const Login = () => {
     try {
       // console.log(formData)
       const response = await axios.post("/api/auth/login", formData);
-      console.log(response.data);
+      // console.log(response.data);
       if (response.status == 200) {
-        console.log(response.data);
+        // console.log(response.data);
         localStorage.setItem("chat-user", JSON.stringify(response.data));
         // console.log("current user : ", response.data);
         toast.success("User is Logging In...");
@@ -35,7 +35,7 @@ const Login = () => {
         setCurrentUser(null);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   };

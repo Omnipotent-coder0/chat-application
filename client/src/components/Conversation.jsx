@@ -25,11 +25,11 @@ const Conversation = () => {
         { message: message }
       );
       if (response.status === 201) {
-        console.log(response.data);
+        // console.log(response.data);
         setConversation([...conversation, response.data]);
       }
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       toast.error(error.message);
       localStorage.removeItem("chat-selected-user");
       localStorage.removeItem("chat-user");
@@ -39,7 +39,7 @@ const Conversation = () => {
   };
   useEffect(() => {
     if (receiverMessage) setConversation([...conversation, receiverMessage]);
-    console.log(receiverMessage);
+    // console.log(receiverMessage);
   }, [receiverMessage]);
 
   useEffect(() => {
@@ -50,10 +50,10 @@ const Conversation = () => {
         );
         if (response.status === 200) {
           setConversation(response.data.messages);
-          console.log("convo : ", response.data.messages);
+          // console.log("convo : ", response.data.messages);
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
         toast.error(error.message);
         localStorage.removeItem("chat-selected-user");
         localStorage.removeItem("chat-user");

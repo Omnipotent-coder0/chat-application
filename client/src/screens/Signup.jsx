@@ -20,17 +20,17 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (e.target.password.value !== e.target.confirmPassword.value) {
-      console.log(
-        "password : ",
-        e.target.password.value,
-        "confirm pass : ",
-        e.target.confirmPassword.value
-      );
+      // console.log(
+      //   "password : ",
+      //   e.target.password.value,
+      //   "confirm pass : ",
+      //   e.target.confirmPassword.value
+      // );
       toast.error("Password and Confirm Password doesn't match!!");
     } else {
       try {
         const response = await axios.post("/api/auth/signup", formData);
-        console.log(response.data);
+        // console.log(response.data);
         if (response.status == 201) {
           toast.success(
             "User is created You will be redirected to the home page"
@@ -39,7 +39,7 @@ const Signup = () => {
           setCurrentUser(response.data);
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
         toast.error(error.message);
       }
     }
