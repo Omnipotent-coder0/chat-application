@@ -19,20 +19,6 @@ import { User } from "../models/user.model.mjs";
 //   }
 // };
 
-export const deleteUser = async (req, res) => {
-  console.log(req.originalUrl, req.method);
-  const {
-    params: { id },
-  } = req;
-  try {
-    const deletedUser = await User.findByIdAndDelete(id);
-    return res.status(200).send(deletedUser);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send({ error: error });
-  }
-};
-
 export const getAllUsers = async (req, res) => {
   console.log(req.originalUrl, req.method);
   // const {

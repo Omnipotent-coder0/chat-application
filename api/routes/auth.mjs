@@ -7,7 +7,6 @@ import {
 } from "../controllers/auth.controllers.mjs";
 import { userValidationShcema } from "../utils/validationShcemas.mjs";
 import { checkSchema } from "express-validator";
-import { verifyToken } from "../utils/jwtToken.mjs";
 
 const router = Router();
 
